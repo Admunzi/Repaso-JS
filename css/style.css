@@ -1,0 +1,138 @@
+body {
+  background-color: #0c0c0c;
+  font-family: "open sans";
+  font-size: 16px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header h1 {
+  color: #c22085;
+  text-align: center;
+}
+header img {
+  height: 120px;
+  width: 120px;
+}
+
+nav {
+  padding: 5px;
+  text-align: center;
+}
+nav ul {
+  margin-top: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  background: #0c0c0c;
+  border: 0.5px solid #c22085;
+  border-radius: 5px;
+  box-shadow: 0.5px 0.5px 1px #2d9687;
+  display: inline-block;
+  line-height: 50px;
+  margin: 2px 0px;
+  transition: all 0.2s;
+  width: 90%;
+}
+nav ul li :hover {
+  background: #e658b081;
+  font-weight: bold;
+}
+nav ul li a {
+  color: #c22085;
+  font-size: 1em;
+  text-decoration: none;
+  display: block;
+}
+
+main div {
+  text-align: center;
+}
+main div h2 {
+  color: #c22085;
+}
+main div h3 {
+  color: #2d9687;
+}
+main section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: auto 5%;
+}
+main section article {
+  border-radius: 8px;
+}
+main section article h3 {
+  text-align: center;
+  font-size: 1.4rem;
+  margin-top: 0;
+}
+main section article div.code-toolbar {
+  position: relative;
+}
+main section article h4 {
+  color: #ffa000;
+  margin-bottom: 0;
+  font-family: Inconsolata;
+}
+main section article:nth-child(odd) {
+  background-color: #e658b081;
+  padding: 10px;
+}
+main section article:nth-child(even) {
+  background-color: #45b6a593;
+  padding: 10px;
+}
+
+footer {
+  font-size: 1.2em;
+  background: #2d9687;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  gap: 25px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+footer div {
+  display: flex;
+  gap: 10px;
+  font-size: 1.3em;
+}
+footer div a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer div a i {
+  font-size: 1.8rem;
+}
+footer a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+footer div span {
+  font-size: 1.2rem;
+}
+footer span > i {
+  color: #f31418;
+}
+
+@media screen and (min-width: 768px) {
+  footer {
+    flex-direction: row;
+  }
+}/*# sourceMappingURL=style.css.map */

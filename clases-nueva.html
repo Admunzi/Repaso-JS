@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Daniel Ayala Cantador">
+    <title>Web Repaso</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/prism.css">
+
+    <script src="https://kit.fontawesome.com/0fb47b0a84.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700;800;900&display=swap" rel="stylesheet">
+    
+    <script src="js/prism.js"></script>
+</head>
+<body>
+    <header>
+        <h1>TUTORIAL JAVASCRIPT - 2021/2022</h1>
+        <img src="img/logo.svg" alt="Logo Dani">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="clases-antigua.html">Clases: Sintaxis Antigua</a></li>
+            <li><a href="clases-nueva.html">Clases: Sintaxis Nueva</a></li>
+            <li><a href="funciones.html">Funciones</a></li>
+            <li><a href="arrays.html">Arrays</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div>
+            <h2>TUTORIAL JAVASCRIPT - Clases: Sintaxis Nueva</h2>
+            <h3>Constructor, set, get, privacidad, método, estático</h3>
+        </div>
+        <section>
+            <article>
+                <h3>Constructor</h3>
+
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-javascript">class Rectangle {
+    height = 0;
+    constructor(height) {
+        this.height = height;
+    }
+}
+let rect1 = new Rectangle(20);</code></pre>
+            </article>
+
+            <article>
+                <h3>Set</h3>
+
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-javascript">class Form{
+    set foo(val){
+        this.fooValue = val;
+    }
+}
+
+let frm = new Form();
+frm.foo = "bar";</code></pre>
+            </article>
+            
+            <article>
+                <h3>Get</h3>
+
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-javascript">class Form{
+    get foo(){
+        return this.fooValue;
+    }
+}
+
+let frm = new Form();
+console.log(frm.foo);</code></pre>
+            </article>
+            
+            <article>
+                <h3>Privacidad</h3>
+
+                <p>Para que una propiedad o metodo sea privado solo se tiene que añadir # antes</p>
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-javascript">class ClaseConPropiedadPrivada {
+    #propiedadPrivada;
+}
+
+class ClaseConMetodoPrivado {
+    #metodoPrivado() {
+        return 'hola mundo';
+    }
+}
+
+class ClaseConPropiedadEstaticaPrivada {
+    static #PROPIEDAD_ESTATICA_PRIVADA;
+}
+
+class ClaseConmetodoEstaticoPrivado {
+    static #metodoEstaticoPrivado() {
+        return 'hola mundo';
+    }
+}</code></pre>
+            </article>
+
+            <article>
+                <h3>Métodos</h3>
+
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-javascript">class Form{
+    saluda () {
+        return "Hola mundo";
+    }
+}
+
+let frm = new Form();
+console.log(frm.saluda());</code></pre>
+            </article>
+
+            <article>
+                <h3>Estático</h3>
+
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-javascript">class Form{
+
+    //Propiedad estática
+    static genero = "Masculino";
+
+    //Método estático
+    static test() {
+        console.log(this === Male);
+    }
+
+}</code></pre>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <span>Made with <i class="fa-solid fa-heart"></i></span>
+        <a href="mailto:daniayalainformatica@gmail.com">daniayalainformatica@gmail.com</a>
+        <div>
+            <a href="https://twitter.com/Admunzi"><i class="fa-brands fa-twitter"></i><span>Twitter</span></a>
+            <a href="https://github.com/Admunzi"><i class="fa-brands fa-github"></i><span>Github</span></a>
+            <a href="https://www.linkedin.com/in/daniel-ayala-cantador-395669185/"><i class="fa-brands fa-linkedin"></i><span>Linkedin</span></a>
+        </div>
+    </footer>
+</body>
+</html>

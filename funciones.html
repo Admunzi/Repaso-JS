@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Daniel Ayala Cantador">
+    <title>Web Repaso</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/prism.css">
+
+    <!-- <script src="js/main.js"></script>
+    <script src="js/jquery.js"></script>
+ -->
+    <script src="https://kit.fontawesome.com/0fb47b0a84.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700;800;900&display=swap" rel="stylesheet">
+    
+    <script src="js/prism.js"></script>
+</head>
+<body>
+    <header>
+        <h1>TUTORIAL JAVASCRIPT - 2021/2022</h1>
+        <img src="img/logo.svg" alt="Logo Dani">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="clases-antigua.html">Clases: Sintaxis Antigua</a></li>
+            <li><a href="clases-nueva.html">Clases: Sintaxis Nueva</a></li>
+            <li><a href="funciones.html">Funciones</a></li>
+            <li><a href="arrays.html">Arrays</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div>
+            <h2>TUTORIAL JAVASCRIPT - Funciones</h2>
+            <h3>Invocación, tipos, objetos (arguments y this), creación (bind...), arrow (lo más compactas)</h3>
+        </div>
+        <section>
+            <article>
+                <h3>Invocación</h3>
+
+                <p>El código dentro de una función no se ejecuta cuando se define la función. <br>
+El código dentro de una función se ejecuta cuando se invoca la función.</p>
+
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-javascript">function myFunction(a, b) {
+    return a * b;
+}
+
+myFunction(10, 2);</code></pre>
+            </article>
+            
+            <article>
+                <h3>Arguments</h3>
+
+                <p>Es un objeto similar a Array accesible dentro de funciones que contiene los valores de los argumentos pasados a esa función.</p>
+
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-javascript">function func1(a, b, c) {
+    console.log(arguments[0]);
+    // Salida: 1
+
+    console.log(arguments[1]);
+    // Salida: 2
+
+    console.log(arguments[2]);
+    // Salida: 3
+}
+
+func1(1, 2, 3);</code></pre>
+            </article>
+
+            <article>
+                <h3>This</h3>
+
+                <p>El valor de this está determinado por cómo se invoca a la función. No puede ser establecida mediante una asignación en tiempo de ejecución, y puede ser diferente cada vez que la función es invocada</p>
+
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-javascript">const test = {
+    prop: 42,
+    func: function() {
+        return this.prop;
+    },
+};
+
+console.log(test.func());
+// Salida: 42</code></pre>
+            </article>
+
+            <article>
+                <h3>Bind</h3>
+
+                <p>El método bind() crea una nueva función, que cuando es llamada, asigna a su operador  this el valor entregado, con una secuencia de argumentos dados precediendo a cualquiera entregados cuando la función es llamada. <br>El valor de this es ignorado cuando la función es llamada con el operador new.</p>
+
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-javascript">this.x = 9;
+let module = {
+    x: 81,
+    getX: function() { return this.x; }
+};
+
+module.getX(); // 81
+
+let getX = module.getX;
+getX(); // 9, porque en este caso, "this" apunta al objeto global
+
+// Crear una nueva función con 'this' asociado al objeto original 'module'
+let boundGetX = getX.bind(module);
+boundGetX(); // 81</code></pre>
+            </article>
+
+            <article>
+                <h3>Apply</h3>
+
+                <p>Invoca una determinada función asignando explícitamente el objeto this y un array o similar como parámetros (argumentos) para dicha función.</p>
+
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-javascript">const person = {
+    fullName: function() {
+        return this.firstName + " " + this.lastName;
+    }
+}
+
+const person1 = {
+    firstName: "Mary",
+    lastName: "Doe"
+}
+
+// Devuelve "Mary Doe":
+person.fullName.apply(person1);</code></pre>
+            </article>
+
+            <article>
+                <h3>Call</h3>
+
+                <p>Llama a una función con un valor dado this y con argumentos provistos individualmente..</p>
+
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-javascript">function add(x, y) {
+    return x + y;
+}
+
+let result = add.call(this, 10, 20);
+console.log(result); // 30</code></pre>
+            </article>
+
+            <article>
+                <h3>Arrow</h3>
+
+                <p>Llama a una función con un valor dado this y con argumentos provistos individualmente.</p>
+
+                <h4>Ejemplo:</h4>
+                <pre class="line-numbers"><code class="language-javascript">let a = [
+    'Hydrogen',
+    'Helium',
+    'Lithium',
+    'Beryllium'
+];
+let a3 = a.map(s => s.length);
+
+console.log(a3); // logs [8, 6, 7, 9]</code></pre>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <span>Made with <i class="fa-solid fa-heart"></i></span>
+        <a href="mailto:daniayalainformatica@gmail.com">daniayalainformatica@gmail.com</a>
+        <div>
+            <a href="https://twitter.com/Admunzi"><i class="fa-brands fa-twitter"></i><span>Twitter</span></a>
+            <a href="https://github.com/Admunzi"><i class="fa-brands fa-github"></i><span>Github</span></a>
+            <a href="https://www.linkedin.com/in/daniel-ayala-cantador-395669185/"><i class="fa-brands fa-linkedin"></i><span>Linkedin</span></a>
+        </div>
+    </footer>
+</body>
+</html>
