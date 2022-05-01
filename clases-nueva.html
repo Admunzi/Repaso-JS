@@ -28,7 +28,8 @@
         <ul>
             <li><a href="index.html">Clases: Sintaxis Antigua</a></li>
             <li><a href="clases-nueva.html">Clases: Sintaxis Nueva</a></li>
-            <li><a href="funciones.html">Funciones</a></li>
+            <li><a href="funciones-clasicas.html">Funciones Clásicas</a></li>
+            <li><a href="arrow-functions.html">Arrow Functions</a></li>
             <li><a href="arrays.html">Arrays</a></li>
         </ul>
     </nav>
@@ -39,50 +40,52 @@
         </div>
         <section>
             <article>
-                <h3>Constructor</h3>
+                <h3>constructor</h3>
 
                 <h4>Ejemplo:</h4>
-                <pre class="line-numbers"><code class="language-javascript">class Rectangle {
-    height = 0;
-    constructor(height) {
-        this.height = height;
+                <pre class="line-numbers"><code class="language-javascript">class Restaurante {
+    constructor(nombre, sillas, terraza) {
+        this.nombre = nombre;
+        this.sillas = sillas;
+        this.terraza = terraza;
     }
 }
-let rect1 = new Rectangle(20);</code></pre>
+let obj = new Restaurante('Rafalete', 20, true);</code></pre>
             </article>
 
             <article>
-                <h3>Set</h3>
+                <h3>set</h3>
 
                 <h4>Ejemplo:</h4>
-                <pre class="line-numbers"><code class="language-javascript">class Form{
-    set foo(val){
-        this.fooValue = val;
+                <pre class="line-numbers"><code class="language-javascript">class Coche{
+    set setColor(color){
+        this.color = color;
     }
 }
 
-let frm = new Form();
-frm.foo = "bar";</code></pre>
+let obj = new Coche();
+obj.color = "rojo";</code></pre>
             </article>
             
             <article>
-                <h3>Get</h3>
+                <h3>get</h3>
 
                 <h4>Ejemplo:</h4>
-                <pre class="line-numbers"><code class="language-javascript">class Form{
-    get foo(){
-        return this.fooValue;
+                <pre class="line-numbers"><code class="language-javascript">class Aula{
+    alumnos = 10;
+    get getAlumnos(){
+        return this.alumnos;
     }
 }
 
-let frm = new Form();
-console.log(frm.foo);</code></pre>
+let obj = new Aula();
+console.log(obj.getAlumnos);</code></pre>
             </article>
             
             <article>
                 <h3>Privacidad</h3>
 
-                <p>Para que una propiedad o metodo sea privado solo se tiene que añadir # antes</p>
+                <p>Para que una propiedad o metodo sea privado solo se tiene que añadir <b>#</b> antes</p>
                 <h4>Ejemplo:</h4>
                 <pre class="line-numbers"><code class="language-javascript">class ClaseConPropiedadPrivada {
     #propiedadPrivada;
@@ -98,7 +101,7 @@ class ClaseConPropiedadEstaticaPrivada {
     static #PROPIEDAD_ESTATICA_PRIVADA;
 }
 
-class ClaseConmetodoEstaticoPrivado {
+class ClaseConMetodoEstaticoPrivado {
     static #metodoEstaticoPrivado() {
         return 'hola mundo';
     }
@@ -109,30 +112,28 @@ class ClaseConmetodoEstaticoPrivado {
                 <h3>Métodos</h3>
 
                 <h4>Ejemplo:</h4>
-                <pre class="line-numbers"><code class="language-javascript">class Form{
+                <pre class="line-numbers"><code class="language-javascript">class Persona{
     saluda () {
         return "Hola mundo";
     }
 }
 
-let frm = new Form();
-console.log(frm.saluda());</code></pre>
+let obj = new Persona();
+console.log(obj.saluda());</code></pre>
             </article>
 
             <article>
-                <h3>Estático</h3>
+                <h3>static</h3>
 
                 <h4>Ejemplo:</h4>
-                <pre class="line-numbers"><code class="language-javascript">class Form{
-
+                <pre class="line-numbers"><code class="language-javascript">class Persona{
     //Propiedad estática
     static genero = "Masculino";
 
     //Método estático
     static test() {
-        console.log(this === Male);
+        console.log('Coche amarillo');
     }
-
 }</code></pre>
             </article>
         </section>

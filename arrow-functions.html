@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/prism.css">
 
+    <!-- <script src="js/main.js"></script>
+    <script src="js/jquery.js"></script>
+ -->
     <script src="https://kit.fontawesome.com/0fb47b0a84.js" crossorigin="anonymous"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,53 +38,30 @@
     </nav>
     <main>
         <div>
-            <h2>TUTORIAL JAVASCRIPT - Clases: Sintaxis Antigua</h2>
-            <h3>Constructor, set, get, método</h3>
+            <h2>TUTORIAL JAVASCRIPT - Arrow Functions</h2>
+            <h3>Arrow function, compactas</h3>
         </div>
         <section>
             <article>
-                <h3>Constructor</h3>
+                <h3>Arrow Function</h3>
+
+                <p>Es una alternativa compacta a una expresión de función tradicional, pero es limitada y no se puede utilizar en todas las situaciones.</p>
 
                 <h4>Ejemplo:</h4>
-                <pre class="line-numbers"><code class="language-javascript">function Persona(nombre, edad, genero) {
-    this.nombre = nombre;
-    this.edad = edad;
-    this.genero = genero;
+                <pre class="line-numbers"><code class="language-javascript">let suma = (numero1, numero2) => {
+    return numero1 + numero2;
 }</code></pre>
             </article>
 
             <article>
-                <h3>Set</h3>
+                <h3>Compactas</h3>
+
+                <p>Para crear una arrow function con la sintaxis mas compacta se tiene que seguir el siguiente ejemplo.</p>
 
                 <h4>Ejemplo:</h4>
-                <pre class="line-numbers"><code class="language-javascript">Persona.prototype.setNacionalidad = function(x) {
-    this.nacionalidad = x;
-};</code></pre>
+                <pre class="line-numbers"><code class="language-javascript">() => sentencia</code></pre>
             </article>
             
-            <article>
-                <h3>Get</h3>
-
-                <h4>Ejemplo:</h4>
-                <pre class="line-numbers"><code class="language-javascript">Persona.prototype.getNombre = function() {
-    return this.nombre;
-};</code></pre>
-            </article>
-
-            <article>
-                <h3>Método</h3>
-
-                <h4>Ejemplo:</h4>
-                <pre class="line-numbers"><code class="language-javascript">Persona.prototype.andar = function() {
-    console.log('Hola'+ this.nombre + ', esto es programación');
-};
-
-let obj = new Persona('Dani');
-obj.andar(); 
-
-// Salida:   Hola Dani, esto es programación.</code></pre>
-            </article>
-
         </section>
     </main>
 

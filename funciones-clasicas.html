@@ -31,37 +31,38 @@
         <ul>
             <li><a href="index.html">Clases: Sintaxis Antigua</a></li>
             <li><a href="clases-nueva.html">Clases: Sintaxis Nueva</a></li>
-            <li><a href="funciones.html">Funciones</a></li>
+            <li><a href="funciones-clasicas.html">Funciones Clásicas</a></li>
+            <li><a href="arrow-functions.html">Arrow Functions</a></li>
             <li><a href="arrays.html">Arrays</a></li>
         </ul>
     </nav>
     <main>
         <div>
-            <h2>TUTORIAL JAVASCRIPT - Funciones</h2>
-            <h3>Invocación, tipos, objetos (arguments y this), creación (bind...), arrow (lo más compactas)</h3>
+            <h2>TUTORIAL JAVASCRIPT - Funciones Clásicas</h2>
+            <h3>Invocación, tipos, objetos (arguments y this), creación (bind...)</h3>
         </div>
         <section>
             <article>
                 <h3>Invocación</h3>
 
-                <p>El código dentro de una función no se ejecuta cuando se define la función. <br>
-El código dentro de una función se ejecuta cuando se invoca la función.</p>
+                <p>El código dentro de una función no se ejecuta cuando se define la función, sino cuando se invoca.</p>
 
                 <h4>Ejemplo:</h4>
-                <pre class="line-numbers"><code class="language-javascript">function myFunction(a, b) {
+                <pre class="line-numbers"><code class="language-javascript">function multiplicar(a, b) {
     return a * b;
 }
 
-myFunction(10, 2);</code></pre>
+multiplicar(10, 2);</code></pre>
             </article>
             
             <article>
-                <h3>Arguments</h3>
+                <h3>arguments</h3>
 
-                <p>Es un objeto similar a Array accesible dentro de funciones que contiene los valores de los argumentos pasados a esa función.</p>
+                <p>Es un objeto similar a <b>Array</b> accesible dentro de funciones que contiene los valores de los argumentos pasados a esa función. <br>
+                    Solo funciona en las funciones clásicas, no arrow.</p>
 
                 <h4>Ejemplo:</h4>
-                <pre class="line-numbers"><code class="language-javascript">function func1(a, b, c) {
+                <pre class="line-numbers"><code class="language-javascript">function test(a, b, c) {
     console.log(arguments[0]);
     // Salida: 1
 
@@ -72,98 +73,96 @@ myFunction(10, 2);</code></pre>
     // Salida: 3
 }
 
-func1(1, 2, 3);</code></pre>
+test(1, 2, 3);</code></pre>
             </article>
 
             <article>
-                <h3>This</h3>
+                <h3>this</h3>
 
                 <p>El valor de this está determinado por cómo se invoca a la función. No puede ser establecida mediante una asignación en tiempo de ejecución, y puede ser diferente cada vez que la función es invocada</p>
 
                 <h4>Ejemplo:</h4>
-                <pre class="line-numbers"><code class="language-javascript">const test = {
-    prop: 42,
-    func: function() {
-        return this.prop;
-    },
+                <pre class="line-numbers"><code class="language-javascript">let persona = {
+    nombre: 'Paco',
+    edad: 22,
+    hablar: function () {
+        console.log(this.nombre);
+    }
 };
 
-console.log(test.func());
-// Salida: 42</code></pre>
+persona.hablar(); // Paco</code></pre>
             </article>
 
             <article>
-                <h3>Bind</h3>
+                <h3>bind</h3>
 
-                <p>El método bind() crea una nueva función, que cuando es llamada, asigna a su operador  this el valor entregado, con una secuencia de argumentos dados precediendo a cualquiera entregados cuando la función es llamada. <br>El valor de this es ignorado cuando la función es llamada con el operador new.</p>
+                <p>El método <b>bind()</b> crea una nueva función, que cuando es llamada, asigna a su operador  this el valor entregado, con una secuencia de argumentos dados precediendo a cualquiera entregados cuando la función es llamada. <br>El valor de this es ignorado cuando la función es llamada con el operador new.</p>
 
                 <h4>Ejemplo:</h4>
-                <pre class="line-numbers"><code class="language-javascript">this.x = 9;
-let module = {
-    x: 81,
-    getX: function() { return this.x; }
-};
+                <pre class="line-numbers"><code class="language-javascript">let persona = {
+    nombre: 'Antonio',
+    edad: 25,
+}
 
-module.getX(); // 81
+let logNombre = function(lang1, lang2) {
+    console.log('INFO: ' + this.nombre + ', ' +this.edad)
+    console.log('ARGS: ' + lang1 + ' ' + lang2)
+}
 
-let getX = module.getX;
-getX(); // 9, porque en este caso, "this" apunta al objeto global
+let logNombrePersona = logNombre.bind(persona)
+logNombrePersona('en', 'es')
 
-// Crear una nueva función con 'this' asociado al objeto original 'module'
-let boundGetX = getX.bind(module);
-boundGetX(); // 81</code></pre>
+// Salida: INFO: Antonio, 25
+// Salida: ARGS: en es</code></pre>
             </article>
 
             <article>
-                <h3>Apply</h3>
+                <h3>apply</h3>
 
                 <p>Invoca una determinada función asignando explícitamente el objeto this y un array o similar como parámetros (argumentos) para dicha función.</p>
 
                 <h4>Ejemplo:</h4>
-                <pre class="line-numbers"><code class="language-javascript">const person = {
-    fullName: function() {
-        return this.firstName + " " + this.lastName;
+                <pre class="line-numbers"><code class="language-javascript">const persona = {
+    nombreCompleto: function() {
+        return this.nombre + " " + this.apellidos;
     }
 }
 
-const person1 = {
-    firstName: "Mary",
-    lastName: "Doe"
+const objPersona = {
+    nombre: "Daniel",
+    apellidos: "Ayala Cantador"
 }
 
-// Devuelve "Mary Doe":
-person.fullName.apply(person1);</code></pre>
+persona.nombreCompleto.apply(objPersona);
+// Salida: "Daniel Ayala Cantador" </code></pre>
             </article>
 
             <article>
-                <h3>Call</h3>
+                <h3>call</h3>
 
                 <p>Llama a una función con un valor dado this y con argumentos provistos individualmente..</p>
 
                 <h4>Ejemplo:</h4>
-                <pre class="line-numbers"><code class="language-javascript">function add(x, y) {
+                <pre class="line-numbers"><code class="language-javascript">function sumar(x, y) {
     return x + y;
 }
 
-let result = add.call(this, 10, 20);
-console.log(result); // 30</code></pre>
+let resultado = sumar.call(this, 10, 20);
+console.log(resultado); 
+// Salida: 30</code></pre>
             </article>
 
             <article>
-                <h3>Arrow</h3>
+                <h3>IIFE</h3>
 
-                <p>Llama a una función con un valor dado this y con argumentos provistos individualmente.</p>
+                <p><b>(Immediately Invoked Function Expression)</b> es una función de JavaScript que se ejecuta tan pronto como se define.</p>
+                <p>Es un patrón de diseño también conocido cómo función autoejecutable <b>(Self-Executing Anonymous Function)</b> y se compone por dos partes. La primera es la función anónima con alcance léxico encerrado por el  Operador de Agrupación (). Esto impide accesar variables fuera del IIFE, así cómo contaminar el alcance (scope) global.</p>
+                <p>La segunda parte crea la expresión de función cuya ejecución es inmediata (), siendo interpretado directamente en el engine de JavaScript.</p>
 
                 <h4>Ejemplo:</h4>
-                <pre class="line-numbers"><code class="language-javascript">let a = [
-    'Hydrogen',
-    'Helium',
-    'Lithium',
-    'Beryllium'
-];
-let a3 = a.map(s => s.length);
-
-console.log(a3); // logs [8, 6, 7, 9]</code></pre>
+                <pre class="line-numbers"><code class="language-javascript">(function () {
+    sentencia
+})();</code></pre>
             </article>
         </section>
     </main>
