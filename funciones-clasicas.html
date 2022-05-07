@@ -158,12 +158,16 @@ console.log(resultado);
                 <p><b>(Immediately Invoked Function Expression)</b> es una función de JavaScript que se ejecuta tan pronto como se define.</p>
                 <p>Es un patrón de diseño también conocido cómo función autoejecutable <b>(Self-Executing Anonymous Function)</b> y se compone por dos partes. La primera es la función anónima con alcance léxico encerrado por el  Operador de Agrupación (). Esto impide accesar variables fuera del IIFE, así cómo contaminar el alcance (scope) global.</p>
                 <p>La segunda parte crea la expresión de función cuya ejecución es inmediata (), siendo interpretado directamente en el engine de JavaScript.</p>
-                <p>Toda declaración dentro del IIFE no será visible fuera de él</p>
+                <p>Toda declaración dentro del IIFE no será visible fuera de él.</p>
 
                 <h4>Ejemplo:</h4>
-                <pre class="line-numbers"><code class="language-javascript">(function () {
-    sentencia
-})();</code></pre>
+                <pre class="line-numbers"><code class="language-javascript">(() => {
+    // Iniciación de variables
+    let clase;
+    let comida;
+})();
+
+// Clase y comida no existen después de la ejecución de la función.</code></pre>
             </article>
         </section>
     </main>
